@@ -43,3 +43,16 @@ button {
   color: white;
   font-weight: bold;
 }
+
+.resultSection {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 35px;
+  color: red;
+  font-stretch: 2px;
+  background-color: white;
+  margin: 30px;
+  transition: all 0.3s ease;
+}
