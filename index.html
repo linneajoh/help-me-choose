@@ -6,13 +6,45 @@
     <link rel="stylesheet" type="text/css" href="main.css">
   </head>
   <body>
-    <h1>Help me choose what to eat between...</h1>
+
+    <h1 class="headline">Help me choose what to eat between...</h1>
+    <h1 class="resultH1">And the winner is...</h1>
     <div class="inputSection">
       <div class="inputs">
         <input placeholder="Something to eat"></input>
       </div>
       <button class="addOption">Or...</button>
     </div>
-    <button>Choose!</button>
+    <div class="resultSection"></div>
+    <button class="submit">Choose!</button>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script>
+      $(function() {
+          $('.resultSection').hide()
+          $('.resultH1').hide()
+          var add_option = function() {
+          $('.inputs').append('<input></input>')
+          }
+
+          $('.addOption').click(add_option)
+
+        var options = []
+        var submit = function() {
+          $('.inputSection').hide()
+          $('.resultSection').css('display' , 'flex')
+          $('.headline').hide()
+          $('.resultH1').css('display', 'flex')
+
+          $('input').each(function(){
+            if ($(this).val() != "")
+            options.push($(this).val())
+          })
+         var winner = options [Math.floor(Math.random() * options.length)]
+          $('.resultSection').text(winner)
+        }
+          $('.submit').click(submit)
+      })
+</script>
   </body>
 </html>
